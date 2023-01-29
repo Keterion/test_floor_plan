@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Test for interactive floor plans</title>
+        <link rel="stylesheet" href="style/style.css">
+        <script src="js/index.js"></script>
+    </head>
+    <body>
+        <map id="plan" name="plan">
+            <area shape="rect" alt="" title="Balkon" coords="10,22,273,344" onclick="roomHover('Balkon')"/>
+            <area shape="rect" alt="" title="Arbeitszimmer" coords="275,13,627,359" onclick="roomHover('Arbeitszimmer')" />
+            <area shape="rect" alt="" title="Schlafzimmer" coords="130,355,455,890" onclick="roomHover('Schlafzimmer')" />
+            <area shape="rect" alt="" title="" coords="463,533,711,885" onclick="roomHover('Kueche')" />
+            <area shape="rect" alt="" title="" coords="461,364,747,532" onclick="roomHover('Flur')" />
+            <area shape="rect" alt="" title="Bad" coords="632,16,819,357" onclick="roomHover('Bad')" />
+            <area shape="rect" alt="" title="WC" coords="823,109,950,356" onclick="roomHover('Toilette')" />
+            <area shape="rect" alt="" title="" coords="714,536,1193,1125" onclick="roomHover('Wohn/Esszimmer')" />
+            <area shape="rect" alt="" title="" coords="396,894,706,1130" onclick="roomHover('Balkon')" />
+            <area shape="poly" alt="" title="" coords="748,361,953,355,954,272,1189,274,1185,527,750,528" onclick="roomHover('Diele')" />
+            <!-- Created by Online Image Map Editor (http://www.maschek.hu/imagemap/index) -->
+        </map>
+        <img usemap="#plan" src="resources/floor_plan.webp" alt="Grundriss" class="floor">
+        <p id="Message">This is the room you click on</p>
+    </body>
+</html>

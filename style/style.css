@@ -1,0 +1,14 @@
+html {
+    margin: 0;
+    padding: 2vh 2vw;
+}
+img {
+    position: absolute;
+}
+p {
+    position: absolute;
+    font-size: x-large;
+    margin-left: 75vw;
+    margin-top: 50vh;
+
+}
