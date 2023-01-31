@@ -1,5 +1,8 @@
 :root {
     --display: none;
+    --text: #efefef;
+    --background: #2f2f2f;
+    --highlight-background: #4f4f4f;
 }
 @font-face {
     font-family: "default";
@@ -11,9 +14,14 @@ body *{
     font-family: "default";
     overflow: hidden;
 }
+html {
+    background-color: var(--background);
+    color: var(--text);
+}
 
 .room {
     display: var(--display);
+    position: absolute;
 }
 
 .terminal {
@@ -23,19 +31,38 @@ body *{
     margin-right: 40vw;
 
     height: 10vh;
-    border: 1px solid black;
+    margin-top: 85vh;
+
+    border: 1px solid var(--text);
     box-sizing: border-box;
     border-radius: .2vw;
 
     overflow-y: scroll;
     -ms-overflow-style: none;
     scrollbar-width: none;
+
+    padding: 0.5vw 0.5vw;
+
+    background-color: var(--highlight-background);
 }
-.terminal input{
+.terminal input {
     width: fit-content;
     border: 0;
+    box-shadow: 0;
+    outline: none;
+    background-color: var(--highlight-background);
+    color: var(--text);
 }
 .terminal_prompt {
     width: fit-content;
     float: left;
+}
+
+.map {
+    width: 45vw;
+    height: 45vw;
+    margin-left: 27.5vw;
+    margin-right: 27.5vw;
+    position: absolute;
+    display: var(--display);
 }

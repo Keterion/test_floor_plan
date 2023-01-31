@@ -9,9 +9,14 @@ function checkCommand(command) {
         gotoDirectory(directory);
     } else if (command.startsWith("clear")) {
         clearHistory();
+    } else if (command.startsWith("map")) {
+        toggleMap();
     }
 }
 
+/*
+Room changing
+*/
 
 function showRoom(room) {
     document.getElementById(room.toLowerCase()).style.setProperty("--display", "block");
@@ -64,21 +69,70 @@ function cascadeHistory() {
     document.getElementById("history_3").innerHTML = history2;
 }
 */
+/*
+Map-stuff
+*/
+function toggleMap(){
+    if(map) {
+        map = false;
+        hideMap();
+        return;
+    } else {
+        map = true;
+        showMap();
+        return;
+    }
+}
+function showMap() {
+    document.getElementById("map").style.setProperty("--display", "block");
+}
+function hideMap() {
+    document.getElementById("map").style.setProperty("--display", "none");
+}
+/*
+LocalStorage interfacing
+*/
+
+function getKey(key) {
+    if(checkKey(key)) {
+        return localStorage.getItem(key);
+    }
+}
+function saveKey(key, value) {
+    localStorage.setItem(key, value);
+    console.log("Saved " + value + " to " + key);
+}
+function checkKey(key) {
+    if (localStorage.getItem(key) === null) { // if there is no key found
+        return false;
+    } // if there is a key
+    return true;
+}
+
+/*
+Init functions
+*/
 
 
 function init() {
+    initKeys();
     currRoom = "office";
     prevRoom = "none";
+    map = false;
     showRoom("office");
     let input = document.getElementById("terminalInput");
     input.addEventListener("keydown", (e) => {
         if(e.key==="Enter") {
+            commandToHistory(input.value);
             try {
                 checkCommand(input.value);
             } catch {}
-            commandToHistory(input.value);
             input.value = "";
             document.getElementById("terminalInput").scrollIntoView();
         }
     })
+}
+
+function initKeys() {
+    return;
 }
