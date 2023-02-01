@@ -21,21 +21,26 @@ Room changing
 function showRoom(room) {
     document.getElementById(room.toLowerCase()).style.setProperty("--display", "block");
 }
-function hidePrevRoom(currRoom) {
-    document.getElementById(currRoom).style.setProperty("--display", "none");
+function hidePrevRoom(currDir) {
+    document.getElementById(currDir).style.setProperty("--display", "none");
 }
 function gotoDirectory(directory) {
     if (directory == "..") {
-        hidePrevRoom(currRoom);
-        showRoom(prevRoom);
-        currRoom = prevRoom;
-        prevRoom = "none";
+        hidePrevRoom(currDir);
+        showRoom(prevDir);
+        currDir = prevDir;
+        prevDir = "none";
+        changeTerminalDir(currDir);
         return;
     }
-    prevRoom = currRoom;
-    currRoom = directory;
-    hidePrevRoom(prevRoom);
-    showRoom(currRoom);
+    prevDir = currDir;
+    currDir = directory;
+    hidePrevRoom(prevDir);
+    showRoom(currDir);
+    changeTerminalDir(directory);
+}
+function changeTerminalDir(directory) {
+    document.getElementById("promptText").innerHTML = "~/" + directory + "/: ";
 }
 
 
@@ -60,15 +65,7 @@ function clearHistory(){
         elements[0].remove(); // you delete something from the array, the array shrinks -> always pos 0
     }
 }
-/*
-function cascadeHistory() {
-    let history1 = document.getElementById("history_1").innerHTML;
-    let history2 = document.getElementById("history_2").innerHTML;
-    console.log(history1);
-    document.getElementById("history_2").innerHTML = history1;
-    document.getElementById("history_3").innerHTML = history2;
-}
-*/
+
 /*
 Map-stuff
 */
@@ -90,7 +87,7 @@ function hideMap() {
     document.getElementById("map").style.setProperty("--display", "none");
 }
 /*
-LocalStorage interfacing
+IO
 */
 
 function getKey(key) {
@@ -116,8 +113,8 @@ Init functions
 
 function init() {
     initKeys();
-    currRoom = "office";
-    prevRoom = "none";
+    currDir = "office";
+    prevDir = "none";
     map = false;
     showRoom("office");
     let input = document.getElementById("terminalInput");

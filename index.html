@@ -7,29 +7,23 @@
         <link rel="stylesheet" href="style/style.css">
         <script src="js/index.js"></script>
     </head>
-    <body onload="init()"><!-- 
-        <map id="plan" name="plan">
-            <area shape="rect" alt="NW" title="NW" coords="46,49,247,170" onclick="roomHover('Office')"/>
-            <area shape="rect" alt="" title="" coords="248,48,373,169" onclick="roomHover('Balcony')"/>
-            <area shape="rect" alt="" title="" coords="248,170,374,353" onclick="roomHover('Server')"/>
-            <area shape="rect" alt="" title="" coords="45,172,171,354" onclick="roomHover('Kitchen')"/>
-            <!-- Created by Online Image Map Editor (http://www.maschek.hu/imagemap/index) 
-            - Office (PC, MK, Reddit)
-            - Balcony (Plants, biology)
-            - Kitchen (Cooking, Nutrition & Health)
-            - Server room (Backend management)
-            
-        </map>
-        <img usemap="#plan" src="resources/floor_plan.png" alt="Grundriss" class="blueprint">
-        <p id="Message">This is the room you click on</p> -->
+    <body onload="init()">
         <img src="./resources/floor_plan.png" class="map" id="map">
         <div class="terminal" id="terminal">
-            <p class="terminal_prompt" id="promptText">user@name >></p>
+            <p class="terminal_prompt" id="promptText">~/office/: </p>
             <input type="text" name="command" alt="command_input" autocomplete="off" class="command_input" id="terminalInput">
         </div>
         <div class="rooms">
             <div id="office" class="room">
                 <h1>This is the office</h1>
+                <div class="files">
+                    <details class="folder">
+                        <summary>Social Media</summary>
+                        <div class="file">
+                            <a href="https://reddit.com">Reddit</a>
+                        </div>
+                    </details>
+                </div>
             </div>
             <div id="balcony" class="room">
                 <h1>This is the balcony</h1>
