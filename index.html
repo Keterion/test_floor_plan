@@ -13,10 +13,12 @@
             <p class="terminal_prompt" id="promptText">~/office/: </p>
             <input type="text" name="command" alt="command_input" autocomplete="off" class="command_input" id="terminalInput">
         </div>
+        <div class="statusDisplay" id="display">
+            <p>Current location: </p><p class="information" id="currLoc"></p>
+        </div>
         <div class="rooms">
             <div id="office" class="room">
-                <h1>This is the office</h1>
-                <div class="files">
+                <div class="files" id="files">
                     <details class="folder">
                         <summary>Social Media</summary>
                         <div class="file">
@@ -26,10 +28,8 @@
                 </div>
             </div>
             <div id="balcony" class="room">
-                <h1>This is the balcony</h1>
             </div>
             <div id="server" class="room">
-                <h1>This is the server</h1>
             </div>
         </div>
     </body>

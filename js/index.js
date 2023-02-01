@@ -7,7 +7,10 @@ function checkCommand(command) {
         let directory = command.replace("cd ", "");
         console.log(directory);
         gotoDirectory(directory);
+    } else if(command.startsWith("ls")) {
+        showTree();
     } else if (command.startsWith("clear")) {
+        hideTree();
         clearHistory();
     } else if (command.startsWith("map")) {
         toggleMap();
@@ -15,19 +18,19 @@ function checkCommand(command) {
 }
 
 /*
-Room changing
+Directory changing
 */
 
-function showRoom(room) {
-    document.getElementById(room.toLowerCase()).style.setProperty("--display", "block");
+function showDir(dir) {
+    document.getElementById(dir.toLowerCase()).style.setProperty("--display", "block");
 }
-function hidePrevRoom(currDir) {
+function hidePrevDir(currDir) {
     document.getElementById(currDir).style.setProperty("--display", "none");
 }
 function gotoDirectory(directory) {
     if (directory == "..") {
-        hidePrevRoom(currDir);
-        showRoom(prevDir);
+        hidePrevDir(currDir);
+        showDir(prevDir);
         currDir = prevDir;
         prevDir = "none";
         changeTerminalDir(currDir);
@@ -35,14 +38,38 @@ function gotoDirectory(directory) {
     }
     prevDir = currDir;
     currDir = directory;
-    hidePrevRoom(prevDir);
-    showRoom(currDir);
+    hidePrevDir(prevDir);
+    showDir(currDir);
     changeTerminalDir(directory);
 }
 function changeTerminalDir(directory) {
     document.getElementById("promptText").innerHTML = "~/" + directory + "/: ";
 }
-
+/*
+Dir Listing
+*/
+function toggleTree() {
+    if(fileTree) {
+        fileTree = false;
+        hideTree();
+        return;
+    }
+    fileTree = true;
+    showTree();
+    return;
+}
+function hideTree() {
+    var elements = document.getElementsByTagName("files");
+    for(var i = 0; i<elements.length; i++) {
+        elements[i].style.setProperty("--display", "none");
+    }
+}
+function showTree() {
+    var elements = document.getElementsByTagName("files");
+    for(var i = 0; i<elements.length; i++) {
+        elements[i].style.setProperty("--display", "block");
+    }
+}
 
 /*
 The command history logic
@@ -116,7 +143,9 @@ function init() {
     currDir = "office";
     prevDir = "none";
     map = false;
-    showRoom("office");
+    fileTree = false;
+    hideTree();
+    showDir("office");
     let input = document.getElementById("terminalInput");
     input.addEventListener("keydown", (e) => {
         if(e.key==="Enter") {

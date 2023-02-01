@@ -68,13 +68,27 @@ html {
     display: var(--display);
 }
 
+.statusDisplay {
+    border: 2px solid var(--text);
+    border-radius: 3px;
+    min-width: 15vw;
+    min-height: fit-content;
+    max-width: fit-content;
+    max-height: 20vh;
+
+    float: right;
+    margin-top: 40vh;
+}
+
 a {
     text-decoration: underline;
     color: var(--text);
     font-size: 1em;
 }
 
-
+.folder {
+    display: var(--display);
+}
 .folder .folder {
     margin-left: 1vw;
     border-width: 1px;
