@@ -3,7 +3,7 @@
 <html>
     <head>
         <meta charset="utf-8" />
-        <title>Test for interactive floor plans</title>
+        <title>Terminal_Startpage</title>
         <link rel="stylesheet" href="style/style.css">
         <script src="js/index.js"></script>
     </head>
@@ -14,16 +14,31 @@
             <input type="text" name="command" alt="command_input" autocomplete="off" class="command_input" id="terminalInput">
         </div>
         <div class="statusDisplay" id="display">
-            <p>Current location: </p><p class="information" id="currLoc"></p>
+            <p class="information_name">Current location: </p><p class="information" id="currLoc"></p>
+            <br>
+            <p class="information_name">Display map?:</p><p class="information" id="mapDisplay"></p>
         </div>
         <div class="rooms">
             <div id="office" class="room">
-                <div class="files" id="files">
+                <div class="files disable-select" id="files">
                     <details class="folder">
                         <summary>Social Media</summary>
-                        <div class="file">
-                            <a href="https://reddit.com">Reddit</a>
-                        </div>
+                            <a href="https://reddit.com" class="file">Reddit</a>
+                            <details class="folder">
+                                <summary>Subreddits</summary>
+                                <a href="https://reddit.com/r/mechanicalkeyboards" class="file">Mechanical Keyboards</a>
+                            </details>
+                            <a href="https://youtube.com" class="file">Youtube</a>
+                    </details>
+                    <details class="folder">
+                        <summary>Programming</summary>
+                        <a href="https://github.com" class="file">Github</a>
+                        <br>
+                        <a href="https://stackoverflow.com/" class="file">Stackoverflow</a>
+                    </details>
+                    <details class="folder">
+                        <summary>Typing</summary>
+                        <a href="https://monkeytype.com" class="file">Monkeytype</a>
                     </details>
                 </div>
             </div>

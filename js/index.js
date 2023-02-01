@@ -34,6 +34,7 @@ function gotoDirectory(directory) {
         currDir = prevDir;
         prevDir = "none";
         changeTerminalDir(currDir);
+        changeDisplayDir(currDir);
         return;
     }
     prevDir = currDir;
@@ -41,9 +42,13 @@ function gotoDirectory(directory) {
     hidePrevDir(prevDir);
     showDir(currDir);
     changeTerminalDir(directory);
+    changeDisplayDir(directory);
 }
 function changeTerminalDir(directory) {
     document.getElementById("promptText").innerHTML = "~/" + directory + "/: ";
+}
+function changeDisplayDir(directory) {
+    document.getElementById("currLoc").innerHTML = directory;
 }
 /*
 Dir Listing
@@ -109,9 +114,11 @@ function toggleMap(){
 }
 function showMap() {
     document.getElementById("map").style.setProperty("--display", "block");
+    document.getElementById("mapDisplay").innerHTML = true;
 }
 function hideMap() {
     document.getElementById("map").style.setProperty("--display", "none");
+    document.getElementById("mapDisplay").innerHTML = false;
 }
 /*
 IO
@@ -145,7 +152,8 @@ function init() {
     map = false;
     fileTree = false;
     hideTree();
-    showDir("office");
+    gotoDirectory("office");
+    hideMap();
     let input = document.getElementById("terminalInput");
     input.addEventListener("keydown", (e) => {
         if(e.key==="Enter") {

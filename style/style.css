@@ -19,7 +19,12 @@ html {
     background-color: var(--background);
     color: var(--text);
 }
-
+.disable-select {
+    -webkit-user-select: none;  
+    -moz-user-select: none;    
+    -ms-user-select: none;      
+    user-select: none;
+}
 .room {
     display: var(--display);
     position: absolute;
@@ -78,6 +83,14 @@ html {
 
     float: right;
     margin-top: 40vh;
+
+    padding: .5vh .5vw;
+}
+.information_name {
+    float: left;
+}
+.information {
+    float: right;
 }
 
 a {
@@ -87,7 +100,7 @@ a {
 }
 
 .folder {
-    display: var(--display);
+    font-size: 1.5em;
 }
 .folder .folder {
     margin-left: 1vw;
@@ -96,6 +109,8 @@ a {
     border-color: var(--background);
     border-left-color: var(--highlight-background);
     box-sizing: border-box;
+
+    font-size: 1em;
 }
 .folder .file {
     margin-left: 1vw;
@@ -104,6 +119,8 @@ a {
     border-color: var(--background);
     border-left-color: var(--highlight-background);
     box-sizing: border-box;
+
+    font-size: 0.75em;
 }
 details summary {
     list-style: none;
