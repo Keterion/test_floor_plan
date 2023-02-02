@@ -133,3 +133,19 @@ a {
 details summary {
     list-style: none;
 }
+
+
+@media only screen and (max-width: 428px) {
+    /* For mobile phones */
+    .terminal {
+        width: 95vw;
+        margin: 86vh auto 1vh auto;
+    }
+    .statusDisplay {
+        display: none;
+    }
+    .folder summary img {
+        width: 8.5vw;
+        height: 8.5vw;
+    }
+}
