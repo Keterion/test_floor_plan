@@ -25,6 +25,9 @@ html {
     -ms-user-select: none;      
     user-select: none;
 }
+.hide_scrollbar {
+    scrollbar-width: none;
+}
 .room {
     display: var(--display);
     position: absolute;
@@ -45,7 +48,6 @@ html {
 
     overflow-y: scroll;
     -ms-overflow-style: none;
-    scrollbar-width: none;
 
     padding: 0.5vw 0.5vw;
 
@@ -82,7 +84,7 @@ html {
     max-height: 20vh;
 
     float: right;
-    margin-top: 40vh;
+    margin-top: 45vh;
 
     padding: .5vh .5vw;
 }
@@ -97,6 +99,67 @@ a {
     text-decoration: underline;
     color: var(--text);
     font-size: 1em;
+}
+
+.main_window{
+    width: 33vw;
+    height: 65vh;
+
+    border: 2px solid var(--highlight-background);
+    box-sizing: border-box;
+    border-radius: 5px;
+    position: absolute;
+
+    margin-left: 33vw;
+    margin-top: 17vh;
+}
+.search_container {
+    width: 50%;
+    height: 5%;
+
+    margin-left: 25%;
+    margin-top: 10%;
+}
+.search_form {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+
+    background-color: var(--highlight-background);
+    color: var(--text);
+}
+.search_input {
+    width: 85%;
+    height: 100%;
+    border: none;
+    outline: none;
+
+    padding-left: 2%;
+    
+    background-color: var(--highlight-background);
+}
+.changeSearch {
+    float: right;
+    width: 1.5vw;
+    height: 1.5vw;
+
+    margin-right: 3%;
+    background: none;
+    border: none;
+}
+
+/*Files*/
+.files {
+    border: 2px solid var(--highlight-background);
+    border-radius: 5px;
+
+    width: 20vw;
+    height: 92.5vh;
+
+    padding: 1vh 1vw;
+
+    overflow-y: scroll;
+    overflow-x: auto;
 }
 
 .folder {
@@ -121,6 +184,7 @@ a {
     box-sizing: border-box;
 
     font-size: 0.75em;
+    display: inline-block;
 }
 .folder summary img{
     width: 1.5vw;

@@ -9,9 +9,17 @@
     </head>
     <body onload="init()">
         <img src="./resources/floor_plan.png" class="map" id="map">
-        <div class="terminal" id="terminal">
+        <div class="terminal hide_scrollbar" id="terminal">
             <p class="terminal_prompt" id="promptText">~/office/: </p>
             <input type="text" name="command" alt="command_input" autocomplete="off" id="terminalInput">
+        </div>
+        <div class="main_window">
+            <div class="search_container">
+                <form action="" class="search_form">
+                    <input type="text" class="search_input">
+                    <button class="changeSearch" id="changeSearch" onclick="openSearchSelector()"><img src="./resources/icons8-directory.svg"></button>
+                </form>
+            </div>
         </div>
         <div class="statusDisplay" id="display">
             <p class="information_name">Current location: </p><p class="information" id="currLoc"></p>
@@ -20,7 +28,7 @@
         </div>
         <div class="rooms">
             <div id="office" class="room">
-                <div class="files disable-select" id="files">
+                <div class="files disable-select hide_scrollbar" id="files">
                     <details class="folder">
                         <summary><img src="./resources/icons8-directory.svg">Social Media</summary>
                             <a href="https://reddit.com">Reddit</a>
@@ -53,6 +61,42 @@
                         <a href="https://typeo.io/">Typeo</a>
                         <br>
                         <a href="learn.dvorak.nl">Learn Dvorak</a>
+                        <br>
+                        <a href="https://lyricstype.com/home">Lyricstype</a>
+                        <br>
+                        <a href="https://problemwords.com/">Problemwords</a>
+                        <br>
+                        <a href="https://umbrella-isle.itch.io/intercontinental">Intercontinental</a>
+                    </details>
+                    <details class="folder">
+                        <summary><img src="./resources/icons8-filled-bookmark-ribbon.svg">Bookmarks</summary>
+                        <details class="folder">
+                            <summary><img src="./resources/icons8-filled-bookmark-ribbon.svg">Self-Hosting</summary>
+                            <details class="folder">
+                                <summary><img src="./resources/icons8-filled-bookmark-ribbon.svg">Frontends</summary>
+                                <a href="https://github.com/zedeus/nitter">Nitter -> Twitter</a>
+                                <br>
+                                <a href="https://github.com/ViewTube/viewtube-vue">ViewTube -> YouTube</a>
+                                <br>
+                                <a href="https://github.com/spikecodes/libreddit">Libreddit -> Reddit</a>
+                            </details>
+                            <details class="folder">
+                                <summary><img src="./resources/icons8-filled-bookmark-ribbon.svg" alt="Bookmark-Icon">Guides & Stuff</summary>
+                                <a href="https://github.com/zilexa/Homeserver">Homeserver - zilexa</a>
+                            </details>
+                            <details class="folder">
+                                <summary><img src="./resources/icons8-filled-bookmark-ribbon.svg" alt="Bookmark-Icon">Other</summary>
+                                <a href="https://github.com/benbusby/whoogle-search">Whoogle - metasearch engine</a>
+                                <br>
+                                <a href="https://www.reddit.com/r/selfhosted/comments/t7f1s0/i_created_polyture_a_selfhosted_endtoend_data/">Polyture</a>
+                                <br>
+                                <a href="https://libretranslate.com/">Translator</a>
+                                <br>
+                                <a href="https://github.com/revoltchat">Revolt - Discord Alt.</a>
+                                <br>
+                                <a href="https://github.com/jgraph/drawio">draw.io - website drawing</a>
+                            </details>
+                        </details>
                     </details>
                 </div>
             </div>
