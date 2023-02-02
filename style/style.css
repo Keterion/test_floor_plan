@@ -103,7 +103,7 @@ a {
     font-size: 1.5em;
 }
 .folder .folder {
-    margin-left: 1vw;
+    margin-left: 1.75vw;
     border-width: 1px;
     border-style: solid;
     border-color: var(--background);
@@ -112,8 +112,8 @@ a {
 
     font-size: 1em;
 }
-.folder .file {
-    margin-left: 1vw;
+.folder a {
+    margin-left: 1.75vw;
     border-width: 1px;
     border-style: solid;
     border-color: var(--background);
@@ -121,6 +121,14 @@ a {
     box-sizing: border-box;
 
     font-size: 0.75em;
+}
+.folder summary img{
+    width: 1.5vw;
+    height: 1.5vw;
+    padding-right: 0.25vw;
+
+    vertical-align: text-bottom;
+    filter: invert(100%) sepia(1%) saturate(83%) hue-rotate(251deg) brightness(114%) contrast(87%);
 }
 details summary {
     list-style: none;
