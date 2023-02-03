@@ -15,8 +15,8 @@
         </div>
         <div class="main_window">
             <div class="search_container">
-                <form action="" class="search_form" method="get">
-                    <input type="text" class="search_input" autocomplete="off" placeholder="Search..." name="q">
+                <form action="" class="search_form" method="get" id="search_form">
+                    <input type="text" class="search_input" id="search_bar" autocomplete="off" placeholder="Search..." name="q" onsubmit="resetSearch()">
                 </form>
             </div>
         </div>
@@ -24,6 +24,8 @@
             <p class="information_name">Current location: </p><p class="information" id="currLoc"></p>
             <br>
             <p class="information_name">Display map?:</p><p class="information" id="mapDisplay"></p>
+            <br>
+            <p class="information_name">Searching:</p><p class="information" id="currSearch"></p>
         </div>
         <div class="rooms">
             <div id="office" class="room">

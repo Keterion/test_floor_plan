@@ -1,19 +1,18 @@
-function roomHover(roomName) {
-    document.getElementById("Message").innerHTML = roomName;
-}
-
 function checkCommand(command) {
     if (command.startsWith("cd ")) {
         let directory = command.replace("cd ", "");
         console.log(directory);
         gotoDirectory(directory);
-    } else if(command.startsWith("ls")) {
-        showTree();
     } else if (command.startsWith("clear")) {
         clearHistory();
     } else if(command.startsWith("search ")) {
         let searchEngine = command.replace("search ", "");
-        validateSearchEngine(searchEngine);
+        if(searchEngine.startsWith("temp ") && validateSearchEngine(searchEngine.replace("temp ", ""))){
+            searchEngine = searchEngine.replace("temp ", "");
+            setSearchEngine(searchEngine, true);
+        } else if (validateSearchEngine(searchEngine)) {
+            setSearchEngine(searchEngine, false);
+        }
     } else if (command.startsWith("map")) {
         toggleMap();
     }
@@ -83,6 +82,20 @@ function validateSearchEngine(searchEngine) {
     }
     return false;
 }
+function setSearchEngine(searchEngineKey, temporary) {
+    var search = document.getElementById("search_form");
+    search.action = engines[searchEngineKey];
+    if (temporary) {
+        document.getElementById("currSearch").innerHTML = "(t) " + searchEngineKey;
+    } else {
+        saveKey("searchEngine", searchEngineKey);
+    document.getElementById("currSearch").innerHTML = searchEngineKey;
+    }
+}
+function resetSearch() {
+    setSearchEngine(getKey("searchEngine"), false);
+    console.log("Reset search engine");
+}
 
 /*
 Map-stuff
@@ -135,13 +148,17 @@ function init() {
     engines = {
         brave: "https://search.brave.com/search",
         ddg: "https://duckduckgo.com/",
+        github: "https://github.com/search",
     };
+    initKeys();
+    const delay = ms => new Promise(res => setTimeout(res, ms));
     currDir = "office";
     prevDir = "none";
     map = false;
     fileTree = false;
     gotoDirectory("office");
     hideMap();
+    setSearchEngine(getKey("searchEngine"), false);
     let input = document.getElementById("terminalInput");
     input.addEventListener("keydown", (e) => {
         if(e.key==="Enter") {
@@ -153,4 +170,10 @@ function init() {
             document.getElementById("terminalInput").scrollIntoView();
         }
     })
+}
+
+function initKeys(){
+    if (!checkKey("searchEngine")) {
+        saveKey("searchEngine", "brave");
+    }
 }

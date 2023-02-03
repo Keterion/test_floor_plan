@@ -60,6 +60,7 @@ html {
     outline: none;
     background-color: var(--highlight-background);
     color: var(--text);
+    margin-left: .598em;
 }
 .terminal_prompt {
     width: fit-content;
