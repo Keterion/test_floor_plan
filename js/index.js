@@ -12,6 +12,9 @@ function checkCommand(command) {
     } else if (command.startsWith("clear")) {
         hideTree();
         clearHistory();
+    } else if(command.startsWith("search ")) {
+        let searchEngine = command.replace("search ", "");
+
     } else if (command.startsWith("map")) {
         toggleMap();
     }
@@ -51,32 +54,6 @@ function changeDisplayDir(directory) {
     document.getElementById("currLoc").innerHTML = directory;
 }
 /*
-Dir Listing
-*/
-function toggleTree() {
-    if(fileTree) {
-        fileTree = false;
-        hideTree();
-        return;
-    }
-    fileTree = true;
-    showTree();
-    return;
-}
-function hideTree() {
-    var elements = document.getElementsByTagName("files");
-    for(var i = 0; i<elements.length; i++) {
-        elements[i].style.setProperty("--display", "none");
-    }
-}
-function showTree() {
-    var elements = document.getElementsByTagName("files");
-    for(var i = 0; i<elements.length; i++) {
-        elements[i].style.setProperty("--display", "block");
-    }
-}
-
-/*
 The command history logic
 */
 function commandToHistory(command) {
@@ -97,6 +74,10 @@ function clearHistory(){
         elements[0].remove(); // you delete something from the array, the array shrinks -> always pos 0
     }
 }
+/*
+Search engine stuff
+*/
+
 
 /*
 Map-stuff
