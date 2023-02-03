@@ -10,11 +10,10 @@ function checkCommand(command) {
     } else if(command.startsWith("ls")) {
         showTree();
     } else if (command.startsWith("clear")) {
-        hideTree();
         clearHistory();
     } else if(command.startsWith("search ")) {
         let searchEngine = command.replace("search ", "");
-
+        validateSearchEngine(searchEngine);
     } else if (command.startsWith("map")) {
         toggleMap();
     }
@@ -77,7 +76,13 @@ function clearHistory(){
 /*
 Search engine stuff
 */
-
+function validateSearchEngine(searchEngine) {
+    if(searchEngine in engines) {
+        console.log(searchEngine);
+        return true;
+    }
+    return false;
+}
 
 /*
 Map-stuff
@@ -127,12 +132,14 @@ Init functions
 
 
 function init() {
-    initKeys();
+    engines = {
+        brave: "https://search.brave.com/search",
+        ddg: "https://duckduckgo.com/",
+    };
     currDir = "office";
     prevDir = "none";
     map = false;
     fileTree = false;
-    hideTree();
     gotoDirectory("office");
     hideMap();
     let input = document.getElementById("terminalInput");
@@ -146,8 +153,4 @@ function init() {
             document.getElementById("terminalInput").scrollIntoView();
         }
     })
-}
-
-function initKeys() {
-    return;
 }
