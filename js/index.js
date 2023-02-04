@@ -149,6 +149,7 @@ function init() {
         brave: "https://search.brave.com/search",
         ddg: "https://duckduckgo.com/",
         github: "https://github.com/search",
+        reddit: "https://www.reddit.com/search/",
     };
     initKeys();
     const delay = ms => new Promise(res => setTimeout(res, ms));
