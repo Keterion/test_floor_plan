@@ -152,7 +152,6 @@ function init() {
         reddit: "https://www.reddit.com/search/",
     };
     initKeys();
-    const delay = ms => new Promise(res => setTimeout(res, ms));
     currDir = "office";
     prevDir = "none";
     map = false;
