@@ -89,7 +89,7 @@ function setSearchEngine(searchEngineKey, temporary) {
         document.getElementById("currSearch").innerHTML = "(t) " + searchEngineKey;
     } else {
         saveKey("searchEngine", searchEngineKey);
-    document.getElementById("currSearch").innerHTML = searchEngineKey;
+        document.getElementById("currSearch").innerHTML = searchEngineKey;
     }
 }
 function resetSearch() {
@@ -170,6 +170,7 @@ function init() {
             document.getElementById("terminalInput").scrollIntoView();
         }
     })
+    document.getElementById("search_bar").focus();
 }
 
 function initKeys(){
