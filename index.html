@@ -7,16 +7,16 @@
         <link rel="stylesheet" href="style/style.css">
         <script src="js/index.js"></script>
     </head>
-    <body onload="init()">
+    <body onload="init()" tabindex="-1">
         <img src="./resources/floor_plan.png" class="map" id="map">
         <div class="terminal hide_scrollbar" id="terminal">
             <p class="terminal_prompt" id="promptText">~/office/: </p>
-            <input type="text" name="command" alt="command_input" autocomplete="off" id="terminalInput">
+            <input type="text" name="command" alt="command_input" autocomplete="off" id="terminalInput" tabindex="2">
         </div>
         <div class="main_window">
             <div class="search_container">
-                <form action="" class="search_form" method="get" id="search_form">
-                    <input type="text" class="search_input" id="search_bar" autocomplete="off" placeholder="Search..." name="q" onsubmit="resetSearch()">
+                <form action="" class="search_form" method="get" id="search_form" tabindex="-1">
+                    <input type="text" class="search_input" id="search_bar" autocomplete="off" placeholder="Search..." name="q" onsubmit="resetSearch()" tabindex="1">
                 </form>
             </div>
         </div>

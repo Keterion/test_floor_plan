@@ -168,6 +168,7 @@ function init() {
             } catch {}
             input.value = "";
             document.getElementById("terminalInput").scrollIntoView();
+            document.getElementById("search_bar").tabIndex = 2;
         }
     })
     document.getElementById("search_bar").focus();
