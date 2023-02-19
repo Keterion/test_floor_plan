@@ -150,6 +150,7 @@ function init() {
         ddg: "https://duckduckgo.com/",
         github: "https://github.com/search",
         reddit: "https://www.reddit.com/search/",
+		crates: "https://crates.io/search/"
     };
     initKeys();
     currDir = "office";
