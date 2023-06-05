@@ -18,6 +18,10 @@ function checkCommand(command) {
     }
 }
 
+function focusSearch() {
+    document.getElementById("search_bar").focus();
+}
+
 /*
 Directory changing
 */
@@ -172,7 +176,12 @@ function init() {
             document.getElementById("search_bar").tabIndex = 2;
         }
     })
-    document.getElementById("search_bar").focus();
+    document.addEventListener("keyup", (e) => {
+        if(e.key==="s" & document.activeElement != input) {
+            focusSearch();
+        }
+    })
+    focusSearch();
 }
 
 function initKeys(){
